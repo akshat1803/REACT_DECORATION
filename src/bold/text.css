@@ -1,0 +1,20 @@
+.bold {
+    font-weight: bold;
+}
+
+.normal {
+    font-weight: normal;
+}
+#italic {
+    font-style: italic;
+}
+.normal{
+    font-style: normal;
+}
+.lower{
+    text-transform: lowercase;
+}
+#upper{
+    text-transform: uppercase;
+
+}

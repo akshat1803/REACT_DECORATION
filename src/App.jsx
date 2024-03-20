@@ -10,20 +10,36 @@ function App() {
 
   function details() {
     setTasks([...tasks, value])
+    setValue("")
   }
+  function deleteValue(index){
+setTasks(tasks.filter((task,ind)=>{
+return ind!==index
+}))
+ }
+function editValue(values){
+  setValue(tasks.filter((vals,index)=>{
+  return vals===values
+  })) 
+}
+
+
+  
   return (
     <>
       <h1>TO-DO LIST</h1>
       <input type="text" value={value} onChange= {(e) => { setValue(e.target.value)}} />
       <button onClick={details}>Add Task</button>
+      
       <ul>
         {tasks.map((val, ind) => {
           return <>
-            <li>{ind}{val}<DeleteIcon /><EditIcon/></li>
+            <li>{val}<DeleteIcon onclick={(e)=> deleteValue(ind)} />
+            <EditIcon onclick={(e)=> editValue(val)}/></li>
             </>
         })}
       </ul>
-
+      
     </>
   )
 }
